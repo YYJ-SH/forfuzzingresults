@@ -19,7 +19,7 @@ OUTPUT_DIR="$WORK_DIR/output$count"
 mkdir -p "$OUTPUT_DIR"
 
 # afl-fuzz 실행
-timeout 5h ./afl-fuzz -i in -o "$OUTPUT_DIR" -- ./main2 @@ &> "$OUTPUT_DIR/log.txt"
+timeout 5h ./afl-fuzz -i in -o "$OUTPUT_DIR" -m none -C  -- ./main2 @@ &> "$OUTPUT_DIR/log.txt"
 
 # top 실행
 timeout 5h top -b -n6 -d3600 > "$OUTPUT_DIR/top.txt"
